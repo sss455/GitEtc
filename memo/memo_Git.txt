@@ -1,0 +1,458 @@
+Gitのパス
+C:\Users\010159_numoto\AppData\Local\Programs\Git\bin
+
+GitHub Desktopのパス
+C:\Users\010159_numoto\AppData\Local\GitHubDesktop
+
+
+sn455 : shingo.numoto@j-tech.jp
+sss455: m_ch_n_m1255@yahoo.co.jp
+
+
+コラボレーター招待URL
+https://github.com/sn455/OfficeWorkManual/invitations
+
+
+■ローカルリポジトリの作成
+git init
+
+
+■リモート・リポジトリを作成
+Gitを使った作業の流れは次の通りだ。
+
+リモート・リポジトリをgit initで作成する。
+リモート・リポジトリの名前：originをgit remote addコマンドで設定する。
+
+共有可能なリポジトリを作成するコマンドだ。
+> git init --bare --share
+
+リポジトリを作成するコマンドgit initに--bare --shareオプションを指定して空のリポジトリを作成する。
+オプションの--bareは中身のないリポジトリであること指定している。
+--sharedはリポジトリを複数のユーザによって共有可能なものにする。
+
+
+リモートリポジトリに名前をつけるコマンドの基本だ。
+> git remote add [name] [url]
+
+
+
+
+
+■コミットの取消
+①直近のコミットを取り消す場合は
+> git revert HEAD^
+
+
+②遡って取り消したい場合は、git logでコミットログを確認して、なかったことにしたいコミットのハッシュを取得して、
+> git log
+
+  commit 573eff4904eefc0177cdbcda1ffcf3a6266addbf  # 例
+  Author: Shoya Miyata
+  Date:   Sat Nov 30 11:10:29 2024 +0900
+ 
+
+> git revert 573eff4904eefc0177cdbcda1ffcf3a6266addbf
+します。その状態で
+
+git push
+
+すると、GitHubの画面上では
+
+頭にRevertと付いたコミットが追加で作成されています。
+これならば、リモートリポジトリの履歴を保持できるので、他の人が前のコミットをプルしていた場合でも、Revertコミットをプルしてもらうことでミスを修正できます。
+
+
+
+プッシュ済みのコミットの取り消し方
+  ミスって不要なコミットしちゃったから消したい💦
+      →強制プッシュ
+
+  この前出したコミットやっぱなしってことにしたいな。やっぱりあれなしで🙇
+      →Revertコミット
+
+
+
+git pushすると、
+> git pus
+
+  To https://github.com/ShoyaMiyata/GitGit.git
+
+   ! [rejected]        branchA -> branchA (non-fast-forward)
+  error: failed to push some refs to 'https://github.com/ShoyaMiyata/GitGit.git'
+  hint: Updates were rejected because the tip of your current branch is behind
+  hint: its remote counterpart. If you want to integrate the remote changes,
+  hint: use 'git pull' before pushing again.
+  hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+「リモートリポジトリの状態よりも遅れてるから、まずはリモートリポジトリの状態を受け入れてちょうだい」となるわけです。でも今回はローカルリポジトリで意図的にコミットを取り消して作った状況であり、リモートリポジトリにも反映させたいので、
+
+
+> git push -f  
+
+
+git pushに-f(--force)オプションを付けることで強制的にリモートリポジトリに変更を反映させることができます。
+つまり、「うっせぇだまれです。黙って従うです。」 ということができます。
+
+
+
+
+
+
+
+■Create README.md
+git revert d8d7c2c93cb46717a95c19a1c6a9e2ad90a9da33
+
+■.gitattributes追加
+git revert 259eb76f8ea1a6a09a6cb0fa99fbf5861ef49e3a
+
+
+
+
+■Create README.md
+git reset --hard d8d7c2c93cb46717a95c19a1c6a9e2ad90a9da33
+
+■.gitattributes追加
+git reset --hard 259eb76f8ea1a6a09a6cb0fa99fbf5861ef49e3a
+
+
+
+
+■Create README.md
+git rebase -i d8d7c2c93cb46717a95c19a1c6a9e2ad90a9da33
+
+■.gitattributes追加
+git rebase -i 259eb76f8ea1a6a09a6cb0fa99fbf5861ef49e3a
+
+
+
+git push -f
+
+
+
+
+
+
+
+# OfficeWorkManual
+事務マニュアル
+
+加筆は自由に行って構いませんが、構成を変更する際は事前に担当者に確認してください。
+
+
+
+
+
+
+
+
+### プリンタドライバのインストール
+ダウンロードページ（http://example.com/printer_driver）よりOSに合わせたドライバをダウンロードしてください。
+
+macOSではシステム環境設定の「プリンタとスキャナ」を開き、「＋」ボタンをクリックしてプリンタを追加します。
+
+
+
+
+
+
+定形郵便物
+25g以内	84円
+50g以内	94円
+
+定形外郵便物
+規格内は、長辺34cm以内、短辺25cm以内、厚さ3cm以内および重量1kg以内とします。
+
+
+
+
+
+
+
+
+
+
+https://qiita.com/manzoku_bukuro/items/c6fc9cbc069fe4a1b776
+$ mkdir ~/.ssh                      # .sshディレクトリが存在しない場合
+$ cd ~/.ssh                         # ~/.sshディレクトリに移動
+$ ssh-keygen -t rsa -f <ファイル名> # ex) ssh-keygen -t rsa -f company
+⇒ssh-keygen -t rsa -f sn455_id_rsa -N ""
+$ ls                                # <ファイル名> と <ファイル名>.pub が生成されているか確認
+
+
+# カレントディレクトリ　~/.ssh
+$ touch config                      # ~/.ssh/configファイルがない場合
+$ vi config
+
+
+以下configファイルの編集内容です
+---------------------------------------------------
+Host <ホスト名>
+    HostName github.com
+    IdentityFile ~/.ssh/<秘密鍵のファイル名>
+    User git
+    AddKeysToAgent yes
+    UseKeychain yes
+
+# 以下設定例
+Host company
+    HostName github.com
+    IdentityFile ~/.ssh/company
+    User git
+    AddKeysToAgent yes
+    UseKeychain yes
+
+Host private
+    HostName github.com
+    IdentityFile ~/.ssh/private
+    User git
+    AddKeysToAgent yes
+    UseKeychain yes
+---------------------------------------------------
+
+
+
+
+■GitHubのサイト上で公開鍵登録
+続いてGitHubの設定画面にアクセスして、SSH keysの設定メニュー上のNew SSH keyというボタンを押します。
+
+以上の手順で公開鍵の登録が完了し、SSH接続が出来るようになりました。GitHubとのSSH接続が正常に行われているか確認するコマンドは以下になります。
+> ssh -T <ホスト名>
+⇒ssh -T sn455
+⇒ssh -T sss455
+⇒ssh -T git@github.com
+
+  Hi <ホスト名>に紐付くGitHubアカウント名! You've successfully authenticated, but GitHub does not provide shell access.
+
+接続が完了している場合、以下のようなメッセージが表示されます。
+
+
+
+■GitHubとのSSHを利用したやりとり
+GitHub上に登録されているリポジトリとやりとりを開始する際に、git remote addやgit clone等で接続設定をすると思います。
+このときに先ほど~/.ssh/configに登録したホスト名を指定します。
+
+
+・cloneするとき
+例えばsample-userというユーザーもしくは組織が持つsample-repositoryというリポジトリをクローンするとします。
+こちらのリポジトリに対してはprivateというホスト名で登録したGitHubアカウントでやりとりしようとする場合は、以下のようなコマンドになります。
+
+> git clone git@private:sample-user/sample-repository.git
+⇒git clone git@sss455:sn455/OfficeWorkManual.git
+（git@github.com:sn455/OfficeWorkManual.git））
+
+
+
+・リモートリポジトリを登録するとき
+cloneした後にファイル編集をしてgit addやgit pushをするにはリモートリポジトリを登録する必要があります。
+その時も先ほどのようにホスト名を指定します。以下コマンドになります。
+
+> $ git remote add origin git@private:sample-user/sample-repository.git
+⇒git remote add origin git@sss455:sn455/OfficeWorkManual.git
+
+
+
+
+■ローカルリポジトリのGitのconfig設定
+先ほどGitHubとのSSHを利用した接続が完了したのですが、git addをした際にemailとnameの設定を求められると思います。
+その際は--localオプションを指定することで、そのプロジェクト限定の設定になります。
+アカウントを複数切り替える場合は--localオプションを指定した方が良いでしょう。
+> git config --local user.name "<ユーザー名>"
+> git config --local user.email "<メールアドレス>"
+ ↓
+> git config --local user.name "sss455"
+> git config --local user.email "m_ch_n_m1255@yahoo.co.jp"
+
+
+
+
+
+
+
+https://qiita.com/oharu121/items/1ca0053c8025d4ca72dc
+1. .ssh フォルダの作成（初回のみ）
+まず、SSH鍵を保存する専用フォルダを作成します（存在していればスキップ可）：
+
+> mkdir "C:\Users\YourUsername\.ssh"
+
+
+
+2. SSH鍵の生成
+次のコマンドを実行すると、RSA 4096bit の鍵ペアを作成できます：
+
+> ssh-keygen -t rsa -b 4096 -f "C:\Users\YourUsername\.ssh\id_rsa" -N ""
+⇒ssh-keygen -t rsa -b 4096 -f "C:\Users\010159_numoto\.ssh\sn455_id_rsa"
+  📌 ポイント
+  -t rsa : 鍵の種類（RSA）
+  -b 4096: ビット長（セキュアな 4096bit）
+  -f     : 鍵の保存先
+  -N ""  : パスフレーズなし
+
+
+
+3. 公開鍵をサーバにアップロード
+SSH鍵の秘密鍵と公開鍵が生成されたら、リモートサーバにSSH鍵の公開鍵をアップロードします。PowerShellを開いて、以下のコマンドを実行します：
+
+> type $env:USERPROFILE\.ssh\id_rsa.pub | ssh [username]@[remote_host] "cat >> .ssh/authorized_keys"
+
+🔒 この操作の際、リモートサーバのパスワードを一度だけ入力する必要があります。
+
+
+
+
+
+
+
+https://qiita.com/0084ken/items/f4a8b0fbff135a987fea
+■メインアカウント設定
+業務で良く使うアカウントは、globalにアカウント情報を設定する。(~/.gitconfig)
+
+~/.gitconfigへ設定
+> git config --global user.name "メインアカウント"
+> git config --global user.email "メインアカウントメールアドレス"
+ ↓
+> git config --global user.name "sn455"
+> git config --global user.email "xxxx"
+反映しているか確認
+
+$ cat ~/.gitconfig
+
+[user]
+	name = メインアカウント
+	email = メインアカウントメールアドレス
+
+
+
+■サブアカウント設定
+頻度が低めな開発などのアカウントは、リポジトリ単位でアカウント情報を設定する。(./.git/config)
+※リポジトリ内の./.git/configに設定する。
+
+cd Project/develop
+> git config --local user.name "サブアカウント"
+> git config --local user.email "サブアカウントメールアドレス"
+ ↓
+> git config --local user.name "sss455"
+> git config --local user.email "m_ch_n_m1255@yahoo.co.jp"
+./.git/configへ設定
+
+$ cat ./.git/config
+
+[user]
+	name = サブアカウント
+	email = サブアカウントメールアドレス
+
+
+■アカウント反映がされているかの確認
+メインアカウントとサブアカウントでそれぞれ、git commitした後に、git logで反映されているか、確認する。
+
+$ git log
+
+  commit XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  Author: サブアカウント <サブアカウントメールアドレス>
+  Date:   Xxx Xxx 00 00:00:00 2016 +0000
+
+      add:git アカウント設定
+
+
+
+
+
+
+
+
+【HTTPS】
+…or create a new repository on the command line
+
+echo "# AspNetCorePrac" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/sss455/AspNetCorePrac.git
+git push -u origin main
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/sss455/AspNetCorePrac.git
+git branch -M main
+git push -u origin main
+
+
+
+【SSH】
+…or create a new repository on the command line
+
+echo "# AspNetCorePrac" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:sss455/AspNetCorePrac.git
+git push -u origin main
+
+…or push an existing repository from the command line
+
+git remote add origin git@github.com:sss455/AspNetCorePrac.git
+git branch -M main
+git push -u origin main
+
+
+
+
+cd XXXX
+git init
+git config --local user.name "sss455"
+git config --local user.email "m_ch_n_m1255@yahoo.co.jp"
+git add .
+git commit -m "XXXXXXXX"
+git branch -M main
+git remote add origin sss455:sss455/XXXXXXXX.git
+git push -u origin main
+
+
+
+
+
+
+
+
+git config --local user.name "sn455"
+git config --local user.email "252955943+sn455@users.noreply.github.com"
+
+
+git config --local user.name "sss455"
+git config --local user.email "m_ch_n_m1255@yahoo.co.jp"
+
+
+
+
+
+git remote add origin sss455:sss455/AspNetCore7Intro.git
+
+
+
+
+
+
+git:https://github.com/sn455
+
+git:https://github.com/sss455
+
+
+
+https://github.com/sss455/AspNetPrac.git
+git@github.com:sss455/AspNetPrac.git
+
+
+
+
+
+
+GitHub - https://api.github.com/sn455
+
+
+
+Git
+C:\Program Files\Git
+C:\Users\010159_numoto\AppData\Local\Programs\Git\cmd\git.exe
+
+
