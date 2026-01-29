@@ -456,3 +456,16 @@ C:\Program Files\Git
 C:\Users\010159_numoto\AppData\Local\Programs\Git\cmd\git.exe
 
 
+
+
+
+
+//ファイル全体のキャッシュ削除
+git rm -r --cached .
+
+//ファイルを指定してキャッシュ削除
+git rm -r --cached [ファイル名]
+
+
+
+
