@@ -469,3 +469,10 @@ git rm -r --cached [ファイル名]
 
 
 
+
+git rm --cached -r .\.vs\
+git rm --cached -r .\bin\
+git rm --cached -r .\obj\
+
+
+
