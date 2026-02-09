@@ -476,3 +476,22 @@ git rm --cached -r .\obj\
 
 
 
+
+C#以外の便利なファイルも作れることも教えてほしい
+・.gitignoreが作れる
+> dotnet new gitignore
+
+・editorconfigが作れる
+> dotnet new editorconfig
+
+
+
+
+
+
+
+
+
+
+
+
