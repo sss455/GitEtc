@@ -391,10 +391,6 @@ end
 
 
 
-
-
-
-
 <section class="footnotes">
     <ol>
         <li id="fn-1">
@@ -405,6 +401,14 @@ end
         </li>
     </ol>
 </section>
+
+
+
+```diff
+- console.log("Goodbye")
++ console.log("Hello World")
+```
+
 
 
 
