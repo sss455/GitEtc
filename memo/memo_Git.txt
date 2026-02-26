@@ -73,7 +73,7 @@ git push
 
 
 git pushすると、
-> git pus
+> git push
 
   To https://github.com/ShoyaMiyata/GitGit.git
 
@@ -465,9 +465,6 @@ git rm -r --cached .
 
 //ファイルを指定してキャッシュ削除
 git rm -r --cached [ファイル名]
-
-
-
 
 
 git rm --cached -r .\.vs\
